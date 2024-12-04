@@ -7,6 +7,6 @@ router.route('/addTask').post(isAuthenticate,addTask);
 router.route('/editTask/:id').put(isAuthenticate,editTask);
 router.route('/deleteTask/:id').delete(isAuthenticate,deleteTask);
 router.route('/statusUpdate/:id').post(isAuthenticate,markTaskCompleted);
-router.route('/myTask/:id').get(isAuthenticate,getAllTask);
+router.route('/myTask/:id').get(getAllTask);
 router.route('/taskById/:id').get(isAuthenticate,getTaskById);
 export default router;

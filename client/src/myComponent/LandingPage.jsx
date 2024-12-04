@@ -14,30 +14,30 @@ const LandingPage = () => {
   const { user } = useSelector((store) => store.user);
   const navigate = useNavigate();
   const [open ,setOpen] = useState(false);
-  const [taskTitle ,setTaskTitle] = useState();
+  const [taskTitle ,setTaskTitle] = useState("");
   const [filteredTask ,setfilteredTask] = useState();
   console.log(allTask, allTask.length);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!user?._id) {
+    if (!user?._id && !task) {
       navigate("/login");
     }
-  }, []);
+  }, [user]);
 
   useGetTask();
 
   useEffect(()=>{
-    dispatch(getTaskTitle(taskTitle))
+    dispatch(getTaskTitle(taskTitle?.trim()));
   },[taskTitle]);
 
   useEffect(()=>{
-    if(allTask.length > 0 ){
-      const filterTask = allTask.filter((task)=>{
+    if(user && allTask?.length > 0 ){
+      const filterTask = allTask?.filter((task)=>{
         if(!srchTaskBytitle){
           return true;
         }
-        return task?.title.toLowerCase().includes(srchTaskBytitle.toLowerCase());
+        return task?.title?.toLowerCase().includes(srchTaskBytitle?.toLowerCase());
       })
       setfilteredTask(filterTask);
     }
