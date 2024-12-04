@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditTask from "./myComponent/EditTask";
 
 function App() {
-  (axios.defaults.baseURL = "http://localhost:3000"),
+  (axios.defaults.baseURL = "https://task-mangement-m00d.onrender.com"),
     (axios.defaults.withCredentials = true);
 
   return (
