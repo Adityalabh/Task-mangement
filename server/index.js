@@ -3,7 +3,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectionDb } from "./utils/db.js";
-import userRoute from "./router/userRoute.js";
 import taskRouter from "./router/taskRoute.js";
 import path from "path";
 
@@ -20,7 +19,6 @@ const corsOption = {
     credentials:true,
 }
 app.use(cors(corsOption));
-app.use('/user',userRoute);
 app.use('/task',taskRouter);
 app.use(express.static(path.join(__dirname,"/client/dist")));
 app.get("*",(req,res)=>{

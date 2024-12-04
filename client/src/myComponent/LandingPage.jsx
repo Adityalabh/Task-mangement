@@ -11,7 +11,6 @@ import { getTaskTitle } from "../redux/taskSlice";
 
 const LandingPage = () => {
   const { allTask,srchTaskBytitle } = useSelector((store) => store.task);
-  const { user } = useSelector((store) => store.user);
   const navigate = useNavigate();
   const [open ,setOpen] = useState(false);
   const [taskTitle ,setTaskTitle] = useState("");
@@ -19,11 +18,7 @@ const LandingPage = () => {
   console.log(allTask, allTask.length);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!user?._id && !allTask) {
-      navigate("/login");
-    }
-  }, [user]);
+  
 
   useGetTask();
 
@@ -32,7 +27,7 @@ const LandingPage = () => {
   },[taskTitle]);
 
   useEffect(()=>{
-    if(user && allTask?.length > 0 ){
+    if( allTask?.length > 0 ){
       const filterTask = allTask?.filter((task)=>{
         if(!srchTaskBytitle){
           return true;

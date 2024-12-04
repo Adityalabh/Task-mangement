@@ -5,7 +5,7 @@ export const addTask = async (req, res) => {
         const { title, description, dueDate } = req.body;
         console.log(req.id)
         const newTask = await Task.create({
-            title, description, dueDate,userId:req.id
+            title, description, dueDate
         })
         res.status(200).json({ message: 'task created successfully', newTask });
     } catch (error) {
@@ -65,8 +65,7 @@ export const markTaskCompleted = async (req, res) => {
 
 export const getAllTask = async(req,res)=>{
     try {
-        const {id} = req.params; 
-        const myTask = await Task.find({userId:id});
+        const myTask = await Task.find();
         if(!myTask){
             res.status(404).json('task not found');
         }
