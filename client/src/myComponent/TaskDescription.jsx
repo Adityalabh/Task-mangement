@@ -34,6 +34,7 @@ const TaskDescription = ({ task, open, setOpen }) => {
       <DialogContent className="lg:min-h-[200px] min-w-[300px]">
         <p className="text-gray-400">Your detailed task description:</p>
         <p className="font-semibold text-lg">{task?.description}</p>
+        <p className="font-semibold text-lg">Due Date:{task?.dueDate.splice(0,9)}</p>
       </DialogContent>
       <DialogActions>
         <Button variant="contained" onClick={handletTaskComplete} className="!bg-purple-400">
