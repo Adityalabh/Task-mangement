@@ -11,7 +11,6 @@ import { getTaskTitle } from "../redux/taskSlice";
 
 const LandingPage = () => {
   const { allTask,srchTaskBytitle } = useSelector((store) => store.task);
-  const navigate = useNavigate();
   const [open ,setOpen] = useState(false);
   const [taskTitle ,setTaskTitle] = useState("");
   const [filteredTask ,setfilteredTask] = useState();
