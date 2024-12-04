@@ -20,7 +20,7 @@ const LandingPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!user?._id && !task) {
+    if (!user?._id && !allTask) {
       navigate("/login");
     }
   }, [user]);
